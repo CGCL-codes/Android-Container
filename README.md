@@ -67,6 +67,7 @@ make -j4
 
 Because Android removes the prefix cpuset of the cpuset subsystem by default, but Docker requires this part of the prefix, so you need to modify the cpuset.c source code in the cgroup to add this part of the prefix. The location of the file is: kernel/cgroup/cpuset.c, the modified content is:
 
+```c
 diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
 index d50a89ccfe99..c86c17d16892 100644
 --- a/kernel/cgroup/cpuset.c
@@ -75,7 +76,7 @@ index d50a89ccfe99..c86c17d16892 100644
                 .private = FILE_MEMORY_PRESSURE_ENABLED,
         },
 
-```c
+
    /* patch */
    {
            .name = "cpuset.cpus",
