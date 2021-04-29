@@ -9,6 +9,7 @@ This project uses the Android smartphone Redmi K20 Pro as the experimental devic
 
 ## Project Directory
 
+```
 ├── CoClient # Android client, used to manage containers in Android
 │
 ├── README.md
@@ -46,6 +47,7 @@ This project uses the Android smartphone Redmi K20 Pro as the experimental devic
 └── picture # effect picture
     ├── 1.png
     └── 2.png
+```
 
 ### Effect
 
