@@ -469,6 +469,5 @@ dockerd.sh &
 
 Android中运行容器的效果图。
 
-- ![avatar](picture/1.png)
+<img src="picture/1.png" alt="avatar" style="zoom:30%;" /><img src="picture/2.png" alt="avatar" style="zoom:30%;" />
 
-- ![avatar](picture/2.png)
