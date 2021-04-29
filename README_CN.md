@@ -468,6 +468,14 @@ dockerd.sh &
 ### 效果
 
 Android中运行容器的效果图。
-<p float="left">
-<img src="https://github.com/xy815661276/Android-Container/blob/main/picture/1.png" width="460" height="995" alt="图片1"/><img src="https://github.com/xy815661276/Android-Container/blob/main/picture/2.png" width="460" height="995" alt="图片2"/>
-</p>
+
+<table>
+  <tr>
+    <td>Docker info</td>
+     <td>hello-world container and criu</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/xy815661276/Android-Container/blob/main/picture/1.png" width="460" height="995" alt="图片1"/></td>
+    <td><img src="https://github.com/xy815661276/Android-Container/blob/main/picture/2.png" width="460" height="995" alt="图片2"/></td>
+  </tr>
+ </table>
