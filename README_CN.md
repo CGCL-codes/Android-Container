@@ -35,17 +35,23 @@
 │   ├── docker-proxy
 │   ├── dockerd
 │   └── runc
-├── files # 安卓总cgroup配置文件和docker启动脚本
-│   ├── cgroups.json
-│   └── dockerd.sh
+├── files  # 安卓总cgroup配置文件和docker启动脚本，diff文件
+│   ├── aosp.diff
+│   ├── cgroups.json
+│   ├── dockerd.sh
+│   ├── kernel.diff
+│   └── raphael_defconfig
 ├── migration # 跨架构迁移相关
-│   ├── README.md
-│   ├── README_CN.md
-│   ├── build-tar-static.sh
-│   └── tar
-└── picture # 效果图片
-    ├── 1.png
-    └── 2.png
+│   ├── README.md
+│   ├── README_CN.md
+│   ├── build-tar-static.sh
+│   └── tar
+├── picture # 效果图片
+│   ├── 1.png
+│   └── 2.png
+└── pixel-OS # 编译pixel os 
+    ├── README.md
+    └── README_CN.md
 ```
 
 ### 效果

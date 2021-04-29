@@ -36,17 +36,23 @@ This project uses the Android smartphone Redmi K20 Pro as the experimental devic
 │ ├── docker-proxy
 │ ├── dockerd
 │ └── runc
-├── files # Android total cgroup configuration file and docker startup script
-│ ├── cgroups.json
-│ └── dockerd.sh
+├── files  # Android total cgroup configuration file and docker startup script, diff files.
+│   ├── aosp.diff
+│   ├── cgroups.json
+│   ├── dockerd.sh
+│   ├── kernel.diff
+│   └── raphael_defconfig
 ├── migration # Cross-architecture migration related
-│ ├── README.md
-│ ├── README_CN.md
-│ ├── build-tar-static.sh
-│ └── tar
-└── picture # effect picture
-    ├── 1.png
-    └── 2.png
+│   ├── README.md
+│   ├── README_CN.md
+│   ├── build-tar-static.sh
+│   └── tar
+├── picture # effect picture
+│   ├── 1.png
+│   └── 2.png
+└── pixel-OS # Compile pixel os 
+    ├── README.md
+    └── README_CN.md
 ```
 
 ### Effect
@@ -63,4 +69,3 @@ The rendering of the container running in Android.
     <td><img src="picture/2.png" width="460" height="995" alt="图片2"/></td>
   </tr>
  </table>
-
