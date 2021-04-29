@@ -4,6 +4,8 @@
 
 These files are docker static binary. Version is 19.03.6. 
 
+The version of the Android operating system is: Android 10, and the kernel version is 4.14.180.
+
 ### Step
 
 -----
@@ -475,5 +477,5 @@ dockerd.sh &
 
 -----
 
-### 
+
 

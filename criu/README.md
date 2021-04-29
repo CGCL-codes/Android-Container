@@ -1,13 +1,36 @@
 # Android-CRIU
 To use criu on android platform.
 
-
-
 By using docker-arm64/alpine image to build criu,and using patchelf to patch the criu.
 
 
 
-## How to use
+## Modify android kernel
+
+To use criu on android platform, you need to modify android kernel. Follow https://criu.org/Linux_kernel to add the following kernel compilation options:
+
+```
+CONFIG_CHECKPOINT_RESTORE
+CONFIG_NAMESPACES
+CONFIG_UTS_NS
+CONFIG_IPC_NS
+CONFIG_PID_NS
+CONFIG_NET_NS
+CONFIG_FHANDLE
+CONFIG_EVENTFD
+CONFIG_EPOLL
+CONFIG_UNIX_DIAG
+CONFIG_INET_DIAG
+CONFIG_INET_UDP_DIAG
+CONFIG_PACKET_DIAG
+CONFIG_NETLINK_DIAG
+CONFIG_NETFILTER_XT_MARK
+CONFIG_TUN
+```
+
+Then compile your kernel.
+
+## How to use criu
 
 ```bash
 adb shell
@@ -17,7 +40,7 @@ cd criu
 ./criu check
 ```
 
-## how to compile
+## how to compile criu
 
 Use docker to compile.
 
@@ -129,4 +152,7 @@ index 120fa8fb..9a24a8ee 100644
  #include "asm/types.h"
 ```
 
+If you get `error: unknown type name '__u64'`, you need `#include <asm/types.h>` in the error file.
+
 To enable cross-achitecture container migrate, you need  to apply [#1271](https://github.com/checkpoint-restore/criu/pull/1271) to your criu source.
+
