@@ -468,5 +468,5 @@ dockerd.sh &
 ### 效果
 
 Android中运行容器的效果图。
-<img src="https://github.com/xy815661276/Android-Container/picture/1.png" width="200" height="200" alt="图片1"/><br/>
-<img src="https://github.com/xy815661276/Android-Container/picture/2.png" width="200" height="200" alt="图片2"/><br/>
+<img src="https://github.com/xy815661276/Android-Container/blob/main/picture/1.png" width="200" height="200" alt="图片1"/><br/>
+<img src="https://github.com/xy815661276/Android-Container/blob/main/picture/2.png" width="200" height="200" alt="图片2"/><br/>
