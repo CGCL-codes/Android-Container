@@ -1,0 +1,392 @@
+diff --git a/arch/arm64/configs/raphael_defconfig b/arch/arm64/configs/raphael_defconfig
+index f55f5959795f..9e8125ce3a5b 100644
+--- a/arch/arm64/configs/raphael_defconfig
++++ b/arch/arm64/configs/raphael_defconfig
+@@ -1,6 +1,7 @@
+ CONFIG_HOTPLUG_SIZE_BITS=29
+ CONFIG_LOCALVERSION="-F1xy-0.19-pe"
+-# CONFIG_FHANDLE is not set
++CONFIG_SYSVIPC=y
++CONFIG_POSIX_MQUEUE=y
+ CONFIG_NO_HZ=y
+ CONFIG_HIGH_RES_TIMERS=y
+ CONFIG_IRQ_TIME_ACCOUNTING=y
+@@ -17,16 +18,25 @@ CONFIG_LOG_BUF_SHIFT=21
+ CONFIG_LOG_CPU_MAX_BUF_SHIFT=17
+ CONFIG_PELT_UTIL_HALFLIFE_16=y
+ CONFIG_CGROUPS=y
++CONFIG_MEMCG=y
++CONFIG_MEMCG_SWAP=y
+ CONFIG_BLK_CGROUP=y
++CONFIG_DEBUG_BLK_CGROUP=y
+ CONFIG_CGROUP_SCHED=y
++CONFIG_CFS_BANDWIDTH=y
+ CONFIG_RT_GROUP_SCHED=y
++CONFIG_CGROUP_PIDS=y
++CONFIG_CGROUP_RDMA=y
+ CONFIG_CGROUP_FREEZER=y
++CONFIG_CGROUP_HUGETLB=y
+ CONFIG_CPUSETS=y
++CONFIG_CGROUP_DEVICE=y
+ CONFIG_CGROUP_CPUACCT=y
++CONFIG_CGROUP_PERF=y
+ CONFIG_CGROUP_BPF=y
++CONFIG_CHECKPOINT_RESTORE=y
+ CONFIG_NAMESPACES=y
+-# CONFIG_UTS_NS is not set
+-# CONFIG_PID_NS is not set
++CONFIG_USER_NS=y
+ CONFIG_SCHED_TUNE=y
+ CONFIG_CPUSET_ASSIST=y
+ CONFIG_CPUSET_AUDIO_APP="0-3,5-6"
+@@ -43,6 +53,7 @@ CONFIG_BLK_DEV_INITRD=y
+ # CONFIG_RD_LZO is not set
+ # CONFIG_RD_LZ4 is not set
+ CONFIG_BPF_SYSCALL=y
++CONFIG_USERFAULTFD=y
+ CONFIG_EMBEDDED=y
+ # CONFIG_SLUB_DEBUG is not set
+ # CONFIG_COMPAT_BRK is not set
+@@ -51,6 +62,8 @@ CONFIG_SLAB_FREELIST_HARDENED=y
+ CONFIG_PROFILING=y
+ CONFIG_JUMP_LABEL=y
+ CONFIG_CC_STACKPROTECTOR_STRONG=y
++CONFIG_MODULES=y
++CONFIG_BLK_DEV_THROTTLING=y
+ CONFIG_PARTITION_ADVANCED=y
+ CONFIG_CFQ_GROUP_IOSCHED=y
+ # CONFIG_MQ_IOSCHED_DEADLINE is not set
+@@ -61,6 +74,9 @@ CONFIG_PCI=y
+ CONFIG_PCI_MSM=y
+ CONFIG_PCI_MSM_MSI=y
+ # CONFIG_ARM64_ERRATUM_1188873 is not set
++CONFIG_ARM64_VA_BITS_48=y
++CONFIG_ARM64_VA_BITS=48
++CONFIG_ARM64_4K_PAGES=y
+ CONFIG_SCHED_MC=y
+ CONFIG_NR_CPUS=8
+ CONFIG_LITTLE_CPU_MASK=15
+@@ -92,6 +108,7 @@ CONFIG_BUILD_ARM64_APPENDED_DTB_IMAGE=y
+ CONFIG_KRYO_PMU_WORKAROUND=y
+ CONFIG_BUILD_ARM64_DT_OVERLAY=y
+ # CONFIG_CORE_DUMP_DEFAULT_ELF_HEADERS is not set
++CONFIG_BINFMT_MISC=y
+ CONFIG_COMPAT=y
+ CONFIG_COMPAT_VDSO=y
+ CONFIG_SUSPEND_SKIP_SYNC=y
+@@ -118,7 +135,9 @@ CONFIG_MIN_FREQ_LP=1209600
+ CONFIG_MIN_FREQ_PERF=1056000
+ CONFIG_NET=y
+ CONFIG_PACKET=y
++CONFIG_PACKET_DIAG=y
+ CONFIG_UNIX=y
++CONFIG_UNIX_DIAG=y
+ CONFIG_XFRM_USER=y
+ CONFIG_XFRM_INTERFACE=y
+ CONFIG_XFRM_STATISTICS=y
+@@ -139,6 +158,9 @@ CONFIG_INET_IPCOMP=y
+ CONFIG_INET_UDP_DIAG=y
+ CONFIG_INET_DIAG_DESTROY=y
+ CONFIG_TCP_CONG_ADVANCED=y
++CONFIG_TCP_CONG_BIC=y
++CONFIG_TCP_CONG_WESTWOOD=y
++CONFIG_TCP_CONG_HTCP=y
+ CONFIG_TCP_CONG_BBR=y
+ CONFIG_DEFAULT_BBR=y
+ CONFIG_IPV6_ROUTER_PREF=y
+@@ -152,6 +174,7 @@ CONFIG_IPV6_VTI=y
+ CONFIG_IPV6_MULTIPLE_TABLES=y
+ CONFIG_IPV6_SUBTREES=y
+ CONFIG_NETFILTER=y
++CONFIG_BRIDGE_NETFILTER=y
+ CONFIG_NF_CONNTRACK=y
+ CONFIG_NF_CONNTRACK_SECMARK=y
+ CONFIG_NF_CONNTRACK_EVENTS=y
+@@ -179,7 +202,9 @@ CONFIG_NETFILTER_XT_TARGET_TPROXY=y
+ CONFIG_NETFILTER_XT_TARGET_TRACE=y
+ CONFIG_NETFILTER_XT_TARGET_SECMARK=y
+ CONFIG_NETFILTER_XT_TARGET_TCPMSS=y
++CONFIG_NETFILTER_XT_MATCH_ADDRTYPE=y
+ CONFIG_NETFILTER_XT_MATCH_BPF=y
++CONFIG_NETFILTER_XT_MATCH_CGROUP=y
+ CONFIG_NETFILTER_XT_MATCH_COMMENT=y
+ CONFIG_NETFILTER_XT_MATCH_CONNLIMIT=y
+ CONFIG_NETFILTER_XT_MATCH_CONNMARK=y
+@@ -189,6 +214,7 @@ CONFIG_NETFILTER_XT_MATCH_ESP=y
+ CONFIG_NETFILTER_XT_MATCH_HASHLIMIT=y
+ CONFIG_NETFILTER_XT_MATCH_HELPER=y
+ CONFIG_NETFILTER_XT_MATCH_IPRANGE=y
++CONFIG_NETFILTER_XT_MATCH_IPVS=y
+ # CONFIG_NETFILTER_XT_MATCH_L2TP is not set
+ CONFIG_NETFILTER_XT_MATCH_LENGTH=y
+ CONFIG_NETFILTER_XT_MATCH_LIMIT=y
+@@ -208,6 +234,11 @@ CONFIG_NETFILTER_XT_MATCH_STATISTIC=y
+ CONFIG_NETFILTER_XT_MATCH_STRING=y
+ CONFIG_NETFILTER_XT_MATCH_TIME=y
+ CONFIG_NETFILTER_XT_MATCH_U32=y
++CONFIG_IP_VS=y
++CONFIG_IP_VS_PROTO_TCP=y
++CONFIG_IP_VS_PROTO_UDP=y
++CONFIG_IP_VS_RR=y
++CONFIG_IP_VS_NFCT=y
+ CONFIG_NF_CONNTRACK_IPV4=y
+ CONFIG_NF_SOCKET_IPV4=y
+ CONFIG_IP_NF_IPTABLES=y
+@@ -253,6 +284,7 @@ CONFIG_NET_CLS_FW=y
+ CONFIG_NET_CLS_U32=y
+ CONFIG_CLS_U32_MARK=y
+ CONFIG_NET_CLS_FLOW=y
++CONFIG_NET_CLS_CGROUP=y
+ CONFIG_NET_EMATCH=y
+ CONFIG_NET_EMATCH_CMP=y
+ CONFIG_NET_EMATCH_NBYTE=y
+@@ -263,9 +295,11 @@ CONFIG_NET_CLS_ACT=y
+ CONFIG_NET_ACT_GACT=y
+ CONFIG_NET_ACT_MIRRED=y
+ CONFIG_NET_ACT_SKBEDIT=y
++CONFIG_NETLINK_DIAG=y
+ CONFIG_QRTR=y
+ CONFIG_QRTR_SMD=y
+ CONFIG_QRTR_MHI=y
++CONFIG_CGROUP_NET_PRIO=y
+ CONFIG_BPF_JIT=y
+ CONFIG_SOCKEV_NLMCAST=y
+ CONFIG_BT=y
+@@ -284,7 +318,6 @@ CONFIG_MHI_NETDEV=y
+ CONFIG_MHI_UCI=y
+ CONFIG_ZRAM=y
+ CONFIG_ZRAM_DEFAULT_COMP_ALGORITHM="zstd"
+-CONFIG_ZRAM_SIZE_OVERRIDE=2
+ CONFIG_BLK_DEV_LOOP=y
+ CONFIG_BLK_DEV_LOOP_MIN_COUNT=16
+ CONFIG_BLK_DEV_RAM=y
+@@ -309,6 +342,7 @@ CONFIG_MD=y
+ CONFIG_BLK_DEV_DM=y
+ CONFIG_DM_CRYPT=y
+ CONFIG_DM_DEFAULT_KEY=y
++CONFIG_DM_THIN_PROVISIONING=y
+ CONFIG_DM_UEVENT=y
+ CONFIG_DM_VERITY=y
+ CONFIG_DM_VERITY_FEC=y
+@@ -316,7 +350,10 @@ CONFIG_DM_BOW=y
+ CONFIG_NETDEVICES=y
+ CONFIG_BONDING=y
+ CONFIG_DUMMY=y
++CONFIG_MACVLAN=y
++CONFIG_VXLAN=y
+ CONFIG_TUN=y
++CONFIG_VETH=y
+ CONFIG_SKY2=y
+ CONFIG_RMNET=y
+ CONFIG_SMSC911X=y
+@@ -355,6 +392,7 @@ CONFIG_INPUT_UINPUT=y
+ # CONFIG_LEGACY_PTYS is not set
+ # CONFIG_DEVMEM is not set
+ CONFIG_SERIAL_MSM_GENI=y
++CONFIG_HW_RANDOM=y
+ CONFIG_HW_RANDOM_MSM_LEGACY=y
+ # CONFIG_DEVPORT is not set
+ CONFIG_DIAG_CHAR=y
+@@ -409,6 +447,7 @@ CONFIG_REGULATOR_QPNP_LCDB=y
+ CONFIG_REGULATOR_REFGEN=y
+ CONFIG_REGULATOR_RPMH=y
+ CONFIG_REGULATOR_STUB=y
++CONFIG_IR_MSM_GENI=y
+ CONFIG_MEDIA_SUPPORT=y
+ CONFIG_MEDIA_CAMERA_SUPPORT=y
+ CONFIG_MEDIA_DIGITAL_TV_SUPPORT=y
+@@ -418,6 +457,7 @@ CONFIG_VIDEO_ADV_DEBUG=y
+ CONFIG_VIDEO_FIXED_MINOR_RANGES=y
+ CONFIG_MEDIA_USB_SUPPORT=y
+ CONFIG_USB_VIDEO_CLASS=y
++CONFIG_USB_GSPCA=y
+ CONFIG_V4L_PLATFORM_DRIVERS=y
+ CONFIG_SPECTRA_CAMERA=y
+ CONFIG_MSM_VIDC_V4L2=y
+@@ -431,6 +471,7 @@ CONFIG_DRM_SDE_EVTLOG_DEBUG=y
+ CONFIG_DRM_SDE_RSC=y
+ CONFIG_DRM_LT_LT9611=y
+ CONFIG_FB_ARMCLCD=y
++CONFIG_LCD_CLASS_DEVICE=y
+ CONFIG_BACKLIGHT_QCOM_SPMI_WLED=y
+ CONFIG_SOUND=y
+ CONFIG_SND=y
+@@ -620,9 +661,6 @@ CONFIG_QCOM_LLCC_PMU=y
+ CONFIG_RAS=y
+ CONFIG_ANDROID=y
+ CONFIG_ANDROID_BINDER_IPC=y
+-CONFIG_ANDROID_SIMPLE_LMK=y
+-CONFIG_ANDROID_SIMPLE_LMK_MINFREE=192
+-CONFIG_ANDROID_SIMPLE_LMK_TIMEOUT_MSEC=100
+ CONFIG_NVMEM_SPMI_SDAM=y
+ CONFIG_SENSORS_SSC=y
+ CONFIG_ESOC=y
+@@ -631,8 +669,11 @@ CONFIG_ESOC_CLIENT=y
+ CONFIG_ESOC_MDM_4x=y
+ CONFIG_ESOC_MDM_DRV=y
+ CONFIG_ESOC_MDM_DBG_ENG=y
++CONFIG_RMNET_PERF=y
++CONFIG_RMNET_SHS=y
+ CONFIG_MSM_TZ_LOG=y
+ CONFIG_EXT4_FS=y
++CONFIG_EXT4_FS_POSIX_ACL=y
+ CONFIG_EXT4_FS_SECURITY=y
+ CONFIG_EXT4_ENCRYPTION=y
+ CONFIG_EXT4_FS_ENCRYPTION=y
+@@ -640,13 +681,19 @@ CONFIG_EXT4_FS_ICE_ENCRYPTION=y
+ CONFIG_F2FS_FS=y
+ CONFIG_F2FS_FS_SECURITY=y
+ CONFIG_F2FS_FS_ENCRYPTION=y
++CONFIG_FANOTIFY=y
++CONFIG_FANOTIFY_ACCESS_PERMISSIONS=y
+ CONFIG_QUOTA=y
+ CONFIG_QFMT_V2=y
+ CONFIG_FUSE_FS=y
++CONFIG_CUSE=y
+ CONFIG_OVERLAY_FS=y
++CONFIG_OVERLAY_FS_REDIRECT_DIR=y
++CONFIG_OVERLAY_FS_INDEX=y
+ CONFIG_VFAT_FS=y
+ CONFIG_EXFAT_FS=y
+ CONFIG_TMPFS_POSIX_ACL=y
++CONFIG_HUGETLBFS=y
+ CONFIG_ECRYPT_FS=y
+ CONFIG_ECRYPT_FS_MESSAGING=y
+ CONFIG_SDCARD_FS=y
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index 83b919771d2f..f1d6d2e4329f 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -1774,15 +1774,15 @@ static inline int __pud_alloc(struct mm_struct *mm, p4d_t *p4d,
+ #else
+ int __pud_alloc(struct mm_struct *mm, p4d_t *p4d, unsigned long address);
+ 
+-static inline void mm_inc_nr_puds(struct mm_struct *mm)
+-{
+-	atomic_long_add(PTRS_PER_PUD * sizeof(pud_t), &mm->pgtables_bytes);
+-}
+-
+-static inline void mm_dec_nr_puds(struct mm_struct *mm)
+-{
+-	atomic_long_sub(PTRS_PER_PUD * sizeof(pud_t), &mm->pgtables_bytes);
+-}
++// static inline void mm_inc_nr_puds(struct mm_struct *mm)
++// {
++// 	atomic_long_add(PTRS_PER_PUD * sizeof(pud_t), &mm->pgtables_bytes);
++// }
++
++// static inline void mm_dec_nr_puds(struct mm_struct *mm)
++// {
++// 	atomic_long_sub(PTRS_PER_PUD * sizeof(pud_t), &mm->pgtables_bytes);
++// }
+ #endif
+ 
+ #if defined(__PAGETABLE_PMD_FOLDED) || !defined(CONFIG_MMU)
+diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
+index 1994d3942c4c..f871e0e28803 100644
+--- a/kernel/cgroup/cpuset.c
++++ b/kernel/cgroup/cpuset.c
+@@ -1994,7 +1994,103 @@ static struct cftype files[] = {
+ 		.write_u64 = cpuset_write_u64,
+ 		.private = FILE_MEMORY_PRESSURE_ENABLED,
+ 	},
++	{
++		.name = "cpuset.cpus",
++		.seq_show = cpuset_common_seq_show,
++		.write = cpuset_write_resmask_wrapper,
++		.max_write_len = (100U + 6 * NR_CPUS),
++		.private = FILE_CPULIST,
++	},
++
++	{
++		.name = "cpuset.mems",
++		.seq_show = cpuset_common_seq_show,
++		.write = cpuset_write_resmask,
++		.max_write_len = (100U + 6 * MAX_NUMNODES),
++		.private = FILE_MEMLIST,
++	},
++
++	{
++		.name = "cpuset.effective_cpus",
++		.seq_show = cpuset_common_seq_show,
++		.private = FILE_EFFECTIVE_CPULIST,
++	},
++
++	{
++		.name = "cpuset.effective_mems",
++		.seq_show = cpuset_common_seq_show,
++		.private = FILE_EFFECTIVE_MEMLIST,
++	},
++
++	{
++		.name = "cpuset.cpu_exclusive",
++		.read_u64 = cpuset_read_u64,
++		.write_u64 = cpuset_write_u64,
++		.private = FILE_CPU_EXCLUSIVE,
++	},
++
++	{
++		.name = "cpuset.mem_exclusive",
++		.read_u64 = cpuset_read_u64,
++		.write_u64 = cpuset_write_u64,
++		.private = FILE_MEM_EXCLUSIVE,
++	},
++
++	{
++		.name = "cpuset.mem_hardwall",
++		.read_u64 = cpuset_read_u64,
++		.write_u64 = cpuset_write_u64,
++		.private = FILE_MEM_HARDWALL,
++	},
+ 
++	{
++		.name = "cpuset.sched_load_balance",
++		.read_u64 = cpuset_read_u64,
++		.write_u64 = cpuset_write_u64,
++		.private = FILE_SCHED_LOAD_BALANCE,
++	},
++
++	{
++		.name = "cpuset.sched_relax_domain_level",
++		.read_s64 = cpuset_read_s64,
++		.write_s64 = cpuset_write_s64,
++		.private = FILE_SCHED_RELAX_DOMAIN_LEVEL,
++	},
++
++	{
++		.name = "cpuset.memory_migrate",
++		.read_u64 = cpuset_read_u64,
++		.write_u64 = cpuset_write_u64,
++		.private = FILE_MEMORY_MIGRATE,
++	},
++
++	{
++		.name = "cpuset.memory_pressure",
++		.read_u64 = cpuset_read_u64,
++		.private = FILE_MEMORY_PRESSURE,
++	},
++
++	{
++		.name = "cpuset.memory_spread_page",
++		.read_u64 = cpuset_read_u64,
++		.write_u64 = cpuset_write_u64,
++		.private = FILE_SPREAD_PAGE,
++	},
++
++	{
++		.name = "cpuset.memory_spread_slab",
++		.read_u64 = cpuset_read_u64,
++		.write_u64 = cpuset_write_u64,
++		.private = FILE_SPREAD_SLAB,
++	},
++
++	{
++		.name = "cpuset.memory_pressure_enabled",
++		.flags = CFTYPE_ONLY_ON_ROOT,
++		.read_u64 = cpuset_read_u64,
++		.write_u64 = cpuset_write_u64,
++		.private = FILE_MEMORY_PRESSURE_ENABLED,
++	},
+ 	{ }	/* terminate */
+ };
+ 

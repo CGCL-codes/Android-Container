@@ -2,6 +2,10 @@
 
 本项目用到的操作系统是PixelExperience，安卓10版本，用到的设备是红米k20 pro。下面讲述如何编译PixelExperience，这是安卓中运行容器的第一步。之后便是修改内核，以满足docker和criu需要的内核环境。
 
+修改的diff文件在files目录下，名为aosp.diff。
+
+
+
 我的编译环境和安卓设备:
 
 - Ubuntu18.04
@@ -66,3 +70,16 @@ $ mka bacon -jX
 ### Root权限
 
 需要获取到root权限，通过卡刷刷入magisk安装包，magisk的下载地址：[magisk](https://github.com/topjohnwu/Magisk/releases)。
+
+### 刷机ROM包
+
+我们提供了一个编译好的ROM包，该ROM包仅仅适用于Redmi K20 Pro手机，里面含有运行Docker和criu的环境，criu需要手动复制文件到/criu目录，docker的二进制文件已经包含在/bin目录下，tar文件需要自己手动复制。**注意！！！**刷机有风险，操作需谨慎。
+
+你需要先刷入miui_RAPHAEL_V12.0.5.0.QFKCNXM_d03168fb55_10.0.zip刷机包，然后再刷入PixelExperience_raphael-10.0-20201204-0354-UNOFFICIAL-48bit-docker-criu.zip，刷机方式为卡刷。
+
+ROM下载地址，Google云盘：
+
+1.[PixelExperience_raphael-10.0-20201204-0354-UNOFFICIAL-48bit-docker-criu.zip](https://drive.google.com/file/d/1khrsGkcuxamdZbyMIwVg8r9PIF6IUcRz/view?usp=sharing)
+
+2.[miui_RAPHAEL_V12.0.5.0.QFKCNXM_d03168fb55_10.0.zip](https://drive.google.com/file/d/1T39MsduE7rZDX6gdaeFwfjEfgKbxvLSU/view?usp=sharing)
+

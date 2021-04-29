@@ -1,0 +1,29 @@
+
+project device/xiaomi/raphael/
+diff --git a/BoardConfig.mk b/BoardConfig.mk
+index 3be8277..bcd956c 100644
+--- a/BoardConfig.mk
++++ b/BoardConfig.mk
+@@ -43,7 +43,7 @@ BOARD_KERNEL_TAGS_OFFSET := 0x00000100
+ BOARD_RAMDISK_OFFSET := 0x01000000
+ TARGET_KERNEL_ARCH := arm64
+ BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
+-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
++# TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
+ ifeq ($(TARGET_PREBUILT_KERNEL),)
+   TARGET_KERNEL_CONFIG := raphael_defconfig
+   TARGET_KERNEL_CLANG_COMPILE := true
+
+project vendor/aosp/
+diff --git a/build/tasks/kernel.mk b/build/tasks/kernel.mk
+index 4c623ed4..1ff9048c 100644
+--- a/build/tasks/kernel.mk
++++ b/build/tasks/kernel.mk
+@@ -22,6 +22,7 @@
+ #
+ # These config vars are usually set in BoardConfig.mk:
+ #
++TARGET_KERNEL_CONFIG = raphael_defconfig
+ #   TARGET_KERNEL_CONFIG               = Kernel defconfig
+ #   TARGET_KERNEL_VARIANT_CONFIG       = Variant defconfig, optional
+ #   TARGET_KERNEL_SELINUX_CONFIG       = SELinux defconfig, optional

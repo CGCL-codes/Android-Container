@@ -1,6 +1,12 @@
 # PixelExperience
 
+**English** | [中文](README_CN.md)
+
 The operating system used in this project is PixelExperience, Android 10 version, and the device used is Redmi k20 pro. The following describes how to compile PixelExperience, which is the first step to run a container in Android. After that is to modify the kernel to meet the kernel environment required by docker and criu.
+
+The diff file is in the files directory, which is aosp.diff.
+
+
 
 My building environment:
 
@@ -66,3 +72,11 @@ if you encounter `out of memory`,Expand your swap space.
 ### Root permissions
 
 You need to obtain root permissions and swipe into the magisk installation package by swiping the card. The download address of magisk is: [magisk](https://github.com/topjohnwu/Magisk/releases).
+
+\### Flashing ROM package We provide a compiled ROM package, which is only suitable for Redmi K20 Pro phones, which contains the environment for running Docker and criu, criu needs to manually copy the files to the /criu directory, and the docker binary file is already included in the /bin directory Next, the tar file needs to be copied manually. **note! ! ! **Refreshing is risky, operation should be done carefully. You need to flash the miui_RAPHAEL_V12.0.5.0.QFKCNXM_d03168fb55_10.0.zip flashing package first, and then flashing PixelExperience_raphael-10.0-20201204-0354-UNOFFICIAL-48bit-docker-criu.zip, the flashing method is card. ROM download address, Google Cloud Disk:
+
+
+
+1.[PixelExperience_raphael-10.0-20201204-0354-UNOFFICIAL-48bit-docker-criu.zip](https://drive.google.com/file/d/1khrsGkcuxamdZbyMIwVg8r9PIF6IUcRz/view?usp=sharing)
+
+2.[miui_RAPHAEL_V12.0.5.0.QFKCNXM_d03168fb55_10.0.zip](https://drive.google.com/file/d/1T39MsduE7rZDX6gdaeFwfjEfgKbxvLSU/view?usp=sharing)

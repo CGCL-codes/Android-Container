@@ -1,5 +1,7 @@
 ## Cross-architecture migration
 
+**English** | [中文](README_CN.md)
+
 Cross-architecture migration refers to the migration of containers in the Ubuntu X86 architecture to the Android operating system of the ARM architecture, and the migrated containers have the state of the container at the time of migration.
 
 Migrating to Android needs to be used in conjunction with the back-end service program, because there is a script to convert the CRIU image file in the back-end service program.
