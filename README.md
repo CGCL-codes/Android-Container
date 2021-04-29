@@ -7,6 +7,46 @@ This project is used to run Linux containers in Android, such as Docker, Podman,
 
 This project uses the Android smartphone Redmi K20 Pro as the experimental device.
 
+## Project Directory
+
+├── CoClient # Android client, used to manage containers in Android
+│
+├── README.md
+├── README_CN.md
+├── backend # Cross-architecture migration backend service program
+│ ├── README.md
+│ ├── README_EN.md
+│ ├── backend.py
+│ ├── container_migrate.py
+│ ├── docker-popcorn-notify
+│ ├── image_migrate.py
+│ ├── mnt.py
+│ └── recode.sh
+├── criu # Use criu module in Android
+│
+├── docker # Run Docker container in Android
+│ ├── README.md
+│ ├── README_CN.md
+│ ├── containerd
+│ ├── containerd-shim
+│ ├── ctr
+│ ├── docker
+│ ├── docker-init
+│ ├── docker-proxy
+│ ├── dockerd
+│ └── runc
+├── files # Android total cgroup configuration file and docker startup script
+│ ├── cgroups.json
+│ └── dockerd.sh
+├── migration # Cross-architecture migration related
+│ ├── README.md
+│ ├── README_CN.md
+│ ├── build-tar-static.sh
+│ └── tar
+└── picture # effect picture
+    ├── 1.png
+    └── 2.png
+
 ### Effect
 
 The rendering of the container running in Android.
@@ -21,3 +61,4 @@ The rendering of the container running in Android.
     <td><img src="picture/2.png" width="460" height="995" alt="图片2"/></td>
   </tr>
  </table>
+
