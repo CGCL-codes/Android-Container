@@ -1,15 +1,17 @@
 # Android Container
+**English** | [中文](README_CN.md)
+
 This project is used to run Linux containers in Android, such as Docker, Podman, etc. And it can migrate X86-based containers to the Android system to achieve cross-architecture container migration. The project needs to compile the Android source code and modify the kernel source code, so you need to understand AOSP compilation. You can use this project to run a complete container in the Android operating system and be able to use normal container functions.
 
-
+-----
 
 This project uses the Android smartphone Redmi K20 Pro as the experimental device.
-
-
 
 ## Run Docker on Android
 
 ### Step
+
+-----
 
 #### 1. compile Android linux kernel
 
@@ -58,6 +60,8 @@ make menuconfig
 # Compile the kernel
 make -j4 
 ```
+
+------
 
 #### 2. Modify cpuset.c code
 
@@ -180,13 +184,19 @@ index d50a89ccfe99..c86c17d16892 100644
 
 It should be noted that when modifying, the above content is copied from the modified file, and then the `cpuset.` prefix is added.
 
+-----
+
 #### 3. Download the Docker binary file
 
 After all the above are modified, there is kernel feature support for running the container, and then download the static binary files of Docker, and then copy them all to the /bin directory, and add the execution permission, then they can be directly called, [download address ](https://download.docker.com/linux/static/stable/aarch64/). 
 
+-----
+
 #### 4. Modify read and write permissions
 
 Because some read-only file directories are currently used, the read and write permissions of the file system need to be modified. You can connect the mobile phone through the adb tool, and then enter `adb remount` to modify the file system to be readable and writable.
+
+------
 
 #### 5. Mount all cgroup subsystems
 
@@ -306,6 +316,8 @@ In order to facilitate viewing, format the json data as follows:
   }
 }
 ```
+
+------
 
 #### 6. Start Docker with a script
 
@@ -450,6 +462,8 @@ export DOCKER_RAMDISK=true
 dockerd --add-runtime crun=/bin/crun -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock &
 ```
 
+-----
+
 #### 7. Start the Docker container
 
 Put the script file in the /bin directory, and give the execution permission, and then directly execute the script file, so that Docker can start successfully.
@@ -462,6 +476,8 @@ chmod 755 /bin/dockerd.sh
 # start docker daemon.
 dockerd.sh &
 ```
+
+-----
 
 ### Effect
 
