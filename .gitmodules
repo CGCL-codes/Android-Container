@@ -1,0 +1,3 @@
+[submodule "CoClient"]
+	path = CoClient
+	url = https://github.com/xy815661276/CoClient
