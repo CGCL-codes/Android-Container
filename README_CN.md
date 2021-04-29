@@ -197,6 +197,117 @@ index d50a89ccfe99..c86c17d16892 100644
 {"Cgroups":[{"UID":"system","GID":"system","Mode":"0755","Controller":"blkio","Path":"/dev/blkio"},{"UID":"system","GID":"system","Mode":"0755","Controller":"cpu","Path":"/dev/cpu"},{"Mode":"0555","Path":"/dev/cpuacct","Controller":"cpuacct"},{"UID":"system","GID":"system","Mode":"0755","Controller":"cpuset","Path":"/dev/cpuset"},{"UID":"system","GID":"system","Mode":"0755","Controller":"memory","Path":"/dev/memcg"},{"UID":"system","GID":"system","Mode":"0755","Controller":"schedtune","Path":"/dev/stune"},{"GID":"system","UID":"system","Mode":"0755","Controller":"devices","Path":"/dev/devices"},{"GID":"system","UID":"system","Mode":"0755","Controller":"freezer","Path":"/dev/freezer"},{"GID":"system","UID":"system","Mode":"0755","Controller":"hugetlb","Path":"/dev/hugetlb"},{"GID":"system","UID":"system","Mode":"0755","Controller":"net_cls","Path":"/dev/net_cls"},{"GID":"system","UID":"system","Mode":"0755","Controller":"net_prio","Path":"/dev/net_prio"},{"GID":"system","UID":"system","Mode":"0755","Controller":"perf_event","Path":"/dev/perf_event"},{"GID":"system","UID":"system","Mode":"0755","Controller":"pids","Path":"/dev/pids"},{"GID":"system","UID":"system","Mode":"0755","Controller":"rdma","Path":"/dev/rdma"}],"Cgroups2":{"UID":"root","GID":"root","Mode":"0600","Path":"/dev/cg2_bpf"}}
 ```
 
+为了方便查看，对json数据进行格式化，如下：
+
+```json
+{
+  "Cgroups": [
+    {
+      "UID": "system",
+      "GID": "system",
+      "Mode": "0755",
+      "Controller": "blkio",
+      "Path": "/dev/blkio"
+    },
+    {
+      "UID": "system",
+      "GID": "system",
+      "Mode": "0755",
+      "Controller": "cpu",
+      "Path": "/dev/cpu"
+    },
+    {
+      "Mode": "0555",
+      "Path": "/dev/cpuacct",
+      "Controller": "cpuacct"
+    },
+    {
+      "UID": "system",
+      "GID": "system",
+      "Mode": "0755",
+      "Controller": "cpuset",
+      "Path": "/dev/cpuset"
+    },
+    {
+      "UID": "system",
+      "GID": "system",
+      "Mode": "0755",
+      "Controller": "memory",
+      "Path": "/dev/memcg"
+    },
+    {
+      "UID": "system",
+      "GID": "system",
+      "Mode": "0755",
+      "Controller": "schedtune",
+      "Path": "/dev/stune"
+    },
+    {
+      "GID": "system",
+      "UID": "system",
+      "Mode": "0755",
+      "Controller": "devices",
+      "Path": "/dev/devices"
+    },
+    {
+      "GID": "system",
+      "UID": "system",
+      "Mode": "0755",
+      "Controller": "freezer",
+      "Path": "/dev/freezer"
+    },
+    {
+      "GID": "system",
+      "UID": "system",
+      "Mode": "0755",
+      "Controller": "hugetlb",
+      "Path": "/dev/hugetlb"
+    },
+    {
+      "GID": "system",
+      "UID": "system",
+      "Mode": "0755",
+      "Controller": "net_cls",
+      "Path": "/dev/net_cls"
+    },
+    {
+      "GID": "system",
+      "UID": "system",
+      "Mode": "0755",
+      "Controller": "net_prio",
+      "Path": "/dev/net_prio"
+    },
+    {
+      "GID": "system",
+      "UID": "system",
+      "Mode": "0755",
+      "Controller": "perf_event",
+      "Path": "/dev/perf_event"
+    },
+    {
+      "GID": "system",
+      "UID": "system",
+      "Mode": "0755",
+      "Controller": "pids",
+      "Path": "/dev/pids"
+    },
+    {
+      "GID": "system",
+      "UID": "system",
+      "Mode": "0755",
+      "Controller": "rdma",
+      "Path": "/dev/rdma"
+    }
+  ],
+  "Cgroups2": {
+    "UID": "root",
+    "GID": "root",
+    "Mode": "0600",
+    "Path": "/dev/cg2_bpf"
+  }
+}
+```
+
 #### 6. 使用脚本启动Docker
 
 Docker运行时需要一些文件目录， 安卓中默认没有这些文件目录，因此利用脚本文件来创建。并且由于缺少IP路由规则，需要添加两条规则。此外，还需要关闭SELinux，关闭了才能访问一些文件目录。
@@ -354,5 +465,10 @@ chmod 755 /bin/dockerd.sh
 dockerd.sh &
 ```
 
+### 效果
 
+Android中运行容器的效果图。
 
+- ![avatar](picture/1.png)
+
+- ![avatar](picture/2.png)
