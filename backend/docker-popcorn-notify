@@ -1,0 +1,43 @@
+#!/bin/bash
+#set -x
+#set -e
+CID=$1
+TARGET=$2
+
+help()
+{
+    cat <<- EOF
+A script for docker container migration, it will find the container file system and help user for popcorn-notify, it takes 2 arguments, Container ID(short or long) and Traget archtecture
+./docker-popcorn-notify <CID> <ARCH> 
+Example: ./docker-popcorn-notify 6213611c573e x86-64
+Author: Tong Xing
+Stevens Institute of Technology 2020
+EOF
+    exit 0
+}
+while [ -n "$1" ];do
+        case $1 in
+                -h) help;; # function help is called
+                --) shift;break;; # end of options
+                -*) echo "error: no such option $1."; exit 1;;
+                *) break;;
+esac
+done
+if [ $# != 2 ]
+then
+    help
+fi
+
+echo $CID
+IMAGE_ID=$(docker ps --no-trunc | grep $CID |  awk '{print $2}' | sed -n '1p')
+
+BIN_PATH=$(docker image inspect $IMAGE_ID | grep UpperDir)
+BIN_PATH=${BIN_PATH%\"*}
+BIN_PATH=${BIN_PATH#*\"*\"*\"}
+echo $BIN_PATH
+
+PIDS=$(docker container top $CID | awk '{print $2}' | sed -e '1d') 
+for PID in $PIDS
+do
+	popcorn-notify $PID $TARGET $BIN_PATH
+done
