@@ -33,11 +33,12 @@ Then compile your kernel.
 ## How to use criu
 
 ```bash
+adb push criu /
 adb shell
-cp -r criu /
-chmod -R 777 criu
-cd criu
-./criu check
+chmod -R 777 /criu
+cd /criu
+cp criu /bin/
+criu check
 ```
 
 ## how to compile criu
