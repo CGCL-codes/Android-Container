@@ -67,7 +67,7 @@
 
 ### 效果
 
-Android中运行容器的效果图。
+**1. Android中运行容器的效果图。**
 
 <table>
   <tr>
@@ -79,3 +79,12 @@ Android中运行容器的效果图。
     <td><img src="picture/2.png" width="460" height="995" alt="图片2"/></td>
   </tr>
  </table>
+**2. 安卓中运行criu，利用criu做简单的looper实验。**
+
+<img src="picture/3.png" alt="图片3"/>
+
+**3. 跨架构迁移展示**
+
+左边是ubuntu操作系统中的容器，右边是安卓中的容器。可以看出，安卓中的容器是接着ubuntu中的容器状态继续运行的，达到了跨架构迁移的目的。
+
+<img src="picture/4.png" alt="图片4"/>

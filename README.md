@@ -68,7 +68,7 @@ This project uses the Android smartphone Redmi K20 Pro as the experimental devic
 
 ### Effect
 
-The rendering of the container running in Android.
+**1. The rendering of the container running in Android.**
 
 <table>
   <tr>
@@ -80,3 +80,12 @@ The rendering of the container running in Android.
     <td><img src="picture/2.png" width="460" height="995" alt="图片2"/></td>
   </tr>
  </table>
+**2. The rendering of the criu on android platform, simple looper experiment **
+
+<img src="picture/3.png" alt="图片3"/>
+
+**3. The rendering of the cross-architecture container migration**
+
+On the left is the container in the ubuntu operating system, and on the right is the container in Android. It can be seen that the container in Android continues to run after the container state in ubuntu, achieving the purpose of cross-architecture migration.
+
+<img src="picture/4.png" alt="图片4"/>
