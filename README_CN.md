@@ -79,6 +79,7 @@
     <td><img src="picture/2.png" width="460" height="995" alt="图片2"/></td>
   </tr>
  </table>
+
 **2. 安卓中运行criu，利用criu做简单的looper实验。**
 
 <img src="picture/3.png" alt="图片3"/>
