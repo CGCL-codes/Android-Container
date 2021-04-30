@@ -80,6 +80,7 @@ This project uses the Android smartphone Redmi K20 Pro as the experimental devic
     <td><img src="picture/2.png" width="460" height="995" alt="图片2"/></td>
   </tr>
  </table>
+
 **2. The rendering of the criu on android platform, simple looper experiment**
 
 <img src="picture/3.png" alt="图片3"/>
