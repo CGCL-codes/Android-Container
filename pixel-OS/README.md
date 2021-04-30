@@ -40,6 +40,10 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 #use F1xy kernel
 mkdir -p kernel/xiaomi/raphael
 git clone https://github.com/PixelExperience-Devices/kernel_xiaomi_raphael kernel/xiaomi/raphael
+# Switch branch
+cd kernel/xiaomi/raphael
+git checkout ten
+cd ../../../
 #Use building kernel instead of prebuilt kernel,this step requires lunch aosp_raphael-eng first.
 #Modify file BoardConfig.mk,Comment out 
 #TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel

@@ -38,6 +38,10 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 # 使用 F1xy 内核
 mkdir -p kernel/xiaomi/raphael
 git clone https://github.com/PixelExperience-Devices/kernel_xiaomi_raphael kernel/xiaomi/raphael
+# 切换分支，切换为安卓10的内核
+cd kernel/xiaomi/raphael
+git checkout ten
+cd ../../../
 # 使用自己编译内核代替默认编译的内核
 # 修改文件BoardConfig.mk，然后注释下面那一行代码
 # TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
