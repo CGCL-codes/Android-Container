@@ -31,6 +31,24 @@ make
 make install
 ```
 
+3. 安装Docker
+
+```shell
+wget https://download.docker.com/linux/static/stable/x86_64/docker-19.03.6.tgz
+tar xvf docker-19.03.6.tgz
+cd docker
+sudo cp ./* /usr/bin
+```
+
+4. 运行Docker守护进程
+
+```shell
+sudo su
+dockerd &
+```
+
+### 
+
 ### 安卓相关
 
 ##### 1. criu和tar

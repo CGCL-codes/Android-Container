@@ -25,12 +25,28 @@ pip install pyfastcopy
 
 2. Compile criu-het
 
-```
+```shell
 git clone https://github.com/systems-nuts/criu-het.git
 cd criu-het
 git checkout heterogeneous-simplified
 make
 make install
+```
+
+3. Docker install
+
+```shell
+wget https://download.docker.com/linux/static/stable/x86_64/docker-19.03.6.tgz
+tar xvf docker-19.03.6.tgz
+cd docker
+sudo cp ./* /usr/bin
+```
+
+4. Run Docker daemon
+
+```shell
+sudo su
+dockerd &
 ```
 
 ### Android related
