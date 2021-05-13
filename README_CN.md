@@ -6,6 +6,8 @@
 
 本项目使用安卓智能手机Redmi K20 Pro作为实验设备。
 
+![avatar](picture/5.png)
+
 ## 项目目录
 
 ```
