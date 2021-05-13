@@ -7,7 +7,7 @@ This project is used to run Linux containers in Android, such as Docker, Podman,
 
 This project uses the Android smartphone Redmi K20 Pro as the experimental device.
 
-![avatar](picture/5.png)
+<img src="picture/5.png" width = "475" height = "289"  />
 
 ## Project Directory
 

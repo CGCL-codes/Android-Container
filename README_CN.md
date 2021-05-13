@@ -6,7 +6,7 @@
 
 本项目使用安卓智能手机Redmi K20 Pro作为实验设备。
 
-![avatar](picture/5.png)
+<img src="picture/5.png" width = "475" height = "289"  />
 
 ## 项目目录
 
